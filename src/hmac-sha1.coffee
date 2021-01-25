@@ -70,7 +70,8 @@ class HMAC_SHA1
     
     parsedUrl  = url.parse originalUrl, true
     hitUrl     = protocol + '://' + req.headers.host + parsedUrl.pathname
-
+    console.log('URL used for sha1 build_signature_raw:', hitUrl)
+    console.log(' method: ',req.method, ' body: ', req.body, ' consumer_secret: ', consumer_secret, ' token: ', token)
     @build_signature_raw hitUrl, parsedUrl, req.method, body, consumer_secret, token
 
   sign_string: (str, key, token) ->
